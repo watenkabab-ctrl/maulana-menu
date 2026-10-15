@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maulana Restaurant — Speisekarte</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=block" rel="stylesheet">
+<style>
+@page { size: A4; margin: 0; }
+*, *::before, *::after {
+  box-sizing: border-box; margin: 0; padding: 0;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+:root {
+  --bg: #0a1d0d;
+
+  /* Gold accent palette */
+  --gold:      #e8c56a;
+  --gold-mid:  #c9a84c;
+  --gold-dark: #a08030;
+  --gold-dim:  rgba(201,168,76,0.22);
+
+  /* ── Text hierarchy ── */
+  --t1: #f4eacc;   /* dish names — warm cream, max contrast */
+  --t2: #dfc07a;   /* descriptions — warm gold, clearly readable */
+  --t3: #a88844;   /* meta: allergens, size labels — subtle */
+  --sep: rgba(201,168,76,0.15);
+}
+html, body {
+  background: #0a1d0d;
+  color: var(--gold);
+  font-family: 'Jost', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+.menu-page {
+  width: 210mm;
+  height: 297mm;
+  background-color: #0a1d0d;
+  background-image:
+    radial-gradient(ellipse at 28% 18%, rgba(255,255,255,0.055) 0%, transparent 52%),
+    radial-gradient(ellipse at 75% 85%, rgba(0,0,0,0.18) 0%, transparent 50%),
+    url(images/bg.png);
+  background-size: cover, cover, cover;
+  background-position: center;
+  position: relative;
+  page-break-after: always;
+  break-after: page;
+  overflow: hidden;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.page-header {
+  text-align: center;
+  padding: 4rem 2rem 2rem;
+  border-bottom: 1px solid var(--gold-dim);
+}
+.page-header .brand {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 3.5rem;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+
+}
+.page-header .subtitle {
+  font-size: 0.85rem;
+  letter-spacing: 0.35em;
+  color: var(--gold-mid);
+  margin-top: 0.4rem;
+
+}
+.divider {
+  text-align: center;
+  color: var(--gold-mid);
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+.menu-section {
+  width: 210mm;
+  height: 297mm;
+  background-color: #0a1d0d;
+  background-image:
+    radial-gradient(ellipse at 28% 18%, rgba(255,255,255,0.055) 0%, transparent 52%),
+    radial-gradient(ellipse at 75% 85%, rgba(0,0,0,0.18) 0%, transparent 50%),
+    url(images/bg.png);
+  background-size: cover;
+  background-position: center;
+  padding: 0 0.5rem 0.5rem;
+  overflow: hidden;
+  page-break-before: always;
+  break-before: page;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.menu-section:first-of-type {
+  page-break-before: auto;
+  break-before: auto;
+}
+.sec-title {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-left: -0.8rem;
+  margin-right: -0.8rem;
+  padding: 0;
+  margin-bottom: 0.8rem;
+  flex-direction: column;
+}
+.sec-title-orn-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: linear-gradient(180deg,
+    rgba(201,168,76,0.04) 0%, rgba(201,168,76,0.22) 40%, rgba(201,168,76,0.22) 60%, rgba(201,168,76,0.04) 100%);
+  border-top: 2px solid rgba(201,168,76,0.8);
+  border-bottom: 2px solid rgba(201,168,76,0.8);
+  box-shadow: inset 0 2px 8px rgba(201,168,76,0.08), 0 2px 12px rgba(201,168,76,0.1);
+  gap: 1.5rem;
+}
+.sec-orn-l, .sec-orn-r {
+  flex: 1;
+  height: 22px;
+  background: url(data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='22'%3E%3Cline x1='0' y1='11' x2='13' y2='11' stroke='%23c9a84c' stroke-width='0.75' opacity='0.55'/%3E%3Cline x1='31' y1='11' x2='44' y2='11' stroke='%23c9a84c' stroke-width='0.75' opacity='0.55'/%3E%3Cpolygon points='31,11 25.5,12.5 28.4,17.4 23.4,14.6 22,20 20.6,14.6 15.6,17.4 18.5,12.5 13,11 18.5,9.5 15.6,4.6 20.6,7.4 22,2 23.4,7.4 28.4,4.6 25.5,9.5' fill='rgba(201%2C168%2C76%2C0.11)' stroke='%23c9a84c' stroke-width='0.85' opacity='0.82'/%3E%3Ccircle cx='22' cy='11' r='2.1' fill='%23c9a84c' opacity='0.6'/%3E%3C/svg%3E) repeat-x center left/44px 22px;
+  opacity: 0.92;
+}
+.sec-orn-r {
+  background-position: center right;
+  transform: scaleX(-1);
+}
+.sec-title-text {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-shadow: 0 2px 16px rgba(201,168,76,0.55), 0 0 40px rgba(201,168,76,0.25);
+}
+.sec-items { display: flex; flex-direction: column; flex: 1; justify-content: space-between; }
+.r-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.4rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--sep);
+  overflow: hidden;
+}
+.r-item:last-child { border-bottom: none; }
+.r-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+.r-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.r-header-dots {
+  flex: 1;
+  border-bottom: 1px dotted rgba(201,168,76,0.3);
+  margin: 0 0.4rem;
+  margin-bottom: 2px;
+}
+.r-header-price {
+  flex-shrink: 0;
+}
+.r-header-price .r-price-btn {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--t1);
+  background: rgba(201,168,76,0.12);
+  border: 1px solid var(--gold-mid);
+  border-radius: 5px;
+  padding: 0.22rem 0.8rem;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+.r-header-price .r-sizes {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+.r-size-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.r-size-label {
+  font-size: 0.75rem;
+  color: var(--t2);
+}
+.r-num-badge {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1.5px solid var(--gold-mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Jost', Arial, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--t1);
+  flex-shrink: 0;
+  letter-spacing: 0;
+}
+.r-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--t1);
+  line-height: 1.2;
+  text-shadow: 0 0 20px rgba(244,234,204,0.08);
+}
+.r-desc {
+  font-size: 1.15rem;
+  color: var(--t2);
+  line-height: 1.55;
+  padding-left: 2rem;
+}
+.r-footer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-left: 2rem;
+}
+.r-allergen {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+.r-allerg-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--t3);
+
+  font-weight: 700;
+}
+.r-allerg-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--t3);
+  border: 1px solid rgba(168,136,68,0.35);
+  border-radius: 3px;
+  padding: 0.07rem 0.35rem;
+  min-width: 1rem;
+  text-align: center;
+  text-transform: lowercase;
+}
+.r-price-btn {
+  display: inline-block;
+  background: rgba(201,168,76,0.12);
+  border: 1px solid rgba(201,168,76,0.55);
+  border-radius: 4px;
+  padding: 0.28rem 0.9rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+.r-sizes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  align-items: center;
+}
+.r-size-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.r-size-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--t3);
+
+}
+.r-photo {
+  width: 172px;
+  height: 172px;
+  flex-shrink: 0;
+}
+.vorspeisen-section {
+  height: 297mm;
+  display: flex;
+  flex-direction: column;
+  page-break-after: always;
+  break-after: page;
+}
+.vorspeisen-section .sec-items {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.grill-section .r-desc {
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+.vorspeisen-section .r-item {
+  padding: 0;
+  border-bottom: 1px solid var(--sep);
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.4rem;
+}
+.vorspeisen-section .r-item:last-child {
+  border-bottom: none;
+}
+.vorspeisen-section .r-photo {
+  width: 172px;
+  height: 172px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.vorspeisen-section .r-item--03 .r-photo img {
+  transform: scale(0.85);
+}
+.r-item--42 .r-photo img {
+  object-fit: cover;
+  object-position: center center;
+  transform: scale(1.25);
+}
+.r-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top center;
+}
+.r-photo--empty {
+  background: transparent;
+  border: none;
+}
+.footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--t3);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  border-top: 1px solid var(--sep);
+  margin-top: 1rem;
+}
+.getraenke-page {
+  width: 210mm;
+  height: 297mm;
+  background-color: #0a1d0d;
+  background-image:
+    radial-gradient(ellipse at 28% 18%, rgba(255,255,255,0.055) 0%, transparent 52%),
+    radial-gradient(ellipse at 75% 85%, rgba(0,0,0,0.18) 0%, transparent 50%),
+    url(images/bg.png);
+  background-size: cover, cover, cover;
+  background-position: center, center, center;
+  padding: 0.6rem 0.8rem 0.6rem;
+  page-break-before: always;
+  break-before: page;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0;
+}
+.g-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  text-align: center;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid rgba(201,168,76,0.7);
+  margin-bottom: 1.6rem;
+  text-shadow: 0 2px 16px rgba(201,168,76,0.4);
+}
+.g-band {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 1.4rem 0;
+  flex: 1;
+}
+.g-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-mid), transparent);
+  margin: 0.4rem 0;
+  opacity: 0.5;
+}
+.g-img-slot {
+  width: 230px;
+  flex-shrink: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+.g-img-slot img {
+  object-fit: contain;
+  display: block;
+}
+.g-img-slot.one img   { width: 230px; height: 250px; }
+.g-img-slot.two img   { width: 110px; height: 250px; }
+.g-img-slot.three img { width: 110px; height: 120px; }
+.g-img-slot.three img:first-child { width: 230px; height: 120px; }
+.g-group {
+  flex: 1;
+}
+.g-group-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1.5px solid rgba(201,168,76,0.6);
+  text-shadow: 0 1px 8px rgba(201,168,76,0.3);
+}
+.g-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 0.6rem;
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  border-radius: 4px;
+}
+.g-row:hover { background: rgba(201,168,76,0.04); }
+.g-num {
+  font-family: 'Jost', Arial, sans-serif;
+  font-size: 0.68rem;
+  color: var(--t3);
+  flex-shrink: 0;
+  min-width: 1.6rem;
+  font-weight: 500;
+}
+.g-name {
+  font-size: 1.2rem;
+  color: var(--t1);
+  flex: 1;
+  font-weight: 400;
+}
+.g-vol {
+  font-size: 0.75rem;
+  color: var(--t2);
+  margin-left: 0.2rem;
+}
+.g-dots {
+  flex: 1;
+  border-bottom: 1px dotted rgba(201,168,76,0.2);
+  margin-bottom: 0.1rem;
+  min-width: 0.5rem;
+  display: none;
+}
+.g-price {
+  display: inline-block;
+  background: rgba(201,168,76,0.12);
+  border: 1px solid rgba(201,168,76,0.55);
+  border-radius: 4px;
+  padding: 0.22rem 0.7rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--gold);
+  flex-shrink: 0;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+.gk-section {
+  display: flex;
+  gap: 2rem;
+  align-items: stretch;
+  flex: 1;
+}
+.gk-items {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.gk-img {
+  flex-shrink: 0;
+  width: 210px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: center;
+  justify-content: center;
+}
+.gk-img img {
+  width: 210px;
+  object-fit: contain;
+  object-position: center;
+}
+.cover {
+  position: relative;
+  width: 210mm;
+  height: 297mm;
+  background-color: #0a1d0d;
+  background-image:
+    radial-gradient(ellipse at 28% 18%, rgba(255,255,255,0.07) 0%, transparent 52%),
+    radial-gradient(ellipse at 75% 85%, rgba(0,0,0,0.22) 0%, transparent 50%),
+    url(images/bg.png);
+  background-size: cover, cover, cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  page-break-after: always;
+  break-after: page;
+  overflow: hidden;
+}
+.back-cover {
+  position: relative;
+  width: 210mm;
+  height: 297mm;
+  background-color: #0a1d0d;
+  background-image:
+    radial-gradient(ellipse at 28% 18%, rgba(255,255,255,0.07) 0%, transparent 52%),
+    radial-gradient(ellipse at 75% 85%, rgba(0,0,0,0.22) 0%, transparent 50%),
+    url(images/bg.png);
+  background-size: cover, cover, cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  page-break-before: always;
+  break-before: page;
+  overflow: hidden;
+}
+.cover-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  pointer-events: none;
+  transform: scale(1.08);
+  transform-origin: center center;
+}
+.cover-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  width: 99%;
+}
+.cover-logo {
+  width: 62%;
+  max-width: 360px;
+  margin-bottom: 1.5rem;
+}
+.cover-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: 0.55em;
+  color: var(--gold);
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 0 2px 20px rgba(201,168,76,0.5), 0 0 60px rgba(201,168,76,0.2);
+}
+.cover-sub {
+  font-size: 0.78rem;
+  letter-spacing: 0.7em;
+  color: var(--gold-mid);
+
+  margin-top: 0.3rem;
+  margin-bottom: 1.2rem;
+}
+.cover-orn {
+  font-size: 1.1rem;
+  color: var(--gold-mid);
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.5em;
+}
+.cover-karte {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2.1rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+  text-shadow: 0 1px 15px rgba(201,168,76,0.4);
+}
+.cover-year {
+  font-size: 0.72rem;
+  letter-spacing: 0.5em;
+  color: var(--gold-mid);
+  margin-bottom: 2rem;
+}
+.cover-qr-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.cover-qr-img {
+  width: 100px;
+  height: 100px;
+  border: 1px solid var(--gold-dim);
+  padding: 4px;
+  border-radius: 4px;
+}
+.cover-qr-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  color: var(--gold-mid);
+
+  opacity: 0.7;
+}
+.cover-social {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 1.4rem;
+  padding: 0.5rem 1.2rem;
+  border: 1px solid var(--gold-dim);
+  border-radius: 2rem;
+  background: rgba(201,168,76,0.06);
+}
+.cover-social svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--gold-mid);
+  flex-shrink: 0;
+}
+.cover-social-handle {
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+}
+.back-content {
+  position: relative;
+  z-index: 1;
+  width: 99%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+.back-logo-small {
+  width: 150px;
+  margin-bottom: 1.2rem;
+  opacity: 0.9;
+}
+.back-restaurant-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2rem;
+  letter-spacing: 0.55em;
+  color: var(--gold);
+
+  margin-bottom: 0.25rem;
+}
+.back-restaurant-sub {
+  font-size: 0.7rem;
+  letter-spacing: 0.45em;
+  color: var(--gold-mid);
+
+  margin-bottom: 1.8rem;
+}
+.back-sep {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-mid), transparent);
+  margin: 1.4rem 0;
+  opacity: 0.4;
+}
+.back-hours-title {
+  font-size: 0.65rem;
+  letter-spacing: 0.45em;
+  color: var(--gold-mid);
+
+  text-align: center;
+  margin-bottom: 0.9rem;
+}
+.back-hours-simple {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--item);
+  text-align: center;
+  margin-bottom: 0.35rem;
+}
+.back-hours-days {
+  font-size: 0.78rem;
+  color: var(--desc);
+  text-align: center;
+  letter-spacing: 0.06em;
+  margin-bottom: 0;
+}
+.back-qr-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+.back-qr-img {
+  width: 150px;
+  height: 150px;
+  border: 1px solid var(--gold-dim);
+  padding: 6px;
+  border-radius: 6px;
+}
+.back-qr-label {
+  font-size: 0.58rem;
+  letter-spacing: 0.3em;
+  color: var(--gold-mid);
+
+  opacity: 0.65;
+}
+.back-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+}
+.back-info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  font-size: 0.82rem;
+  color: var(--desc);
+}
+.back-info-icon {
+  color: var(--gold-mid);
+  font-size: 0.88rem;
+  flex-shrink: 0;
+  width: 1.2rem;
+  text-align: center;
+}
+.info-page {
+  width: 210mm;
+  height: 297mm;
+  background-color: #0a1d0d;
+  background-image:
+    radial-gradient(ellipse at 28% 18%, rgba(255,255,255,0.055) 0%, transparent 52%),
+    radial-gradient(ellipse at 75% 85%, rgba(0,0,0,0.18) 0%, transparent 50%),
+    url(images/bg.png);
+  background-size: cover;
+  background-position: center;
+  padding: 0.8rem 0.8rem 0.8rem;
+  page-break-after: always;
+  break-after: page;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  color: var(--item);
+}
+.info-welcome-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2rem;
+  font-style: italic;
+  color: var(--item);
+  margin-bottom: 1rem;
+}
+.info-welcome-text {
+  font-size: 0.88rem;
+  color: var(--desc);
+  line-height: 1.75;
+  margin-bottom: 0.7rem;
+}
+.info-sep {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-mid), transparent);
+  opacity: 0.3;
+  margin: 1.5rem 0;
+}
+.info-allerg-box {
+  border: 1px solid var(--gold-dim);
+  border-radius: 4px;
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 1.5rem;
+}
+.info-allerg-box-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+
+  margin-bottom: 0.5rem;
+}
+.info-allerg-box-text {
+  font-size: 0.78rem;
+  color: var(--desc);
+  line-height: 1.6;
+}
+.info-allerg-title {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--gold-mid);
+
+  margin-bottom: 0.8rem;
+}
+.info-allerg-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem 2rem;
+}
+.info-allerg-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+}
+.info-allerg-badge {
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--gold-mid);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+.info-allerg-name {
+  color: var(--desc);
+}
+.info-section-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  color: var(--gold-mid);
+
+  margin-bottom: 0.35rem;
+  margin-top: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.info-section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gold-dim);
+}
+.info-section-text {
+  font-size: 0.8rem;
+  color: var(--desc);
+  line-height: 1.6;
+}
+.info-sign {
+  margin-top: auto;
+  padding-top: 2rem;
+}
+.info-sign-greeting {
+  font-size: 0.82rem;
+  color: var(--desc);
+  margin-bottom: 0.3rem;
+}
+.info-sign-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.6rem;
+  font-style: italic;
+  color: var(--item);
+}
+.info-sign-sub {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  color: var(--gold-mid);
+
+  margin-top: 0.2rem;
+}
+.r-price-btn {
+  display: inline-block;
+  background: rgba(201,168,76,0.15);
+  border: 1.5px solid var(--gold-mid);
+  border-radius: 4px;
+  padding: 0.22rem 0.85rem;
+  font-size: 0.93rem;
+  font-weight: 700;
+  color: var(--t1);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  text-shadow: 0 0 10px rgba(244,234,204,0.12);
+}
+.g-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-mid), transparent);
+  margin: 0.2rem 0;
+  opacity: 0.45;
+}
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  body {
+    background: #0a1d0d !important;
+  }
+  .menu-page, .menu-section, .cover, .back-cover, .info-page, .getraenke-page {
+    background-color: #0a1d0d !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  img {
+    image-rendering: -webkit-optimize-contrast !important;
+    image-rendering: crisp-edges !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <img class="cover-frame" src="images/frame.png" alt="">
+  <div class="cover-content">
+    <img class="cover-logo" src="images/logo.png" alt="Maulana Restaurant">
+    <div class="cover-name">MAULANA</div>
+    <div class="cover-sub">R E S T A U R A N T</div>
+    <div class="cover-orn">✦ · ✦</div>
+    <div class="cover-karte">Speisekarte</div>
+    <div class="cover-qr-wrap">
+      <img class="cover-qr-img" src="images/qr.png" alt="QR Code">
+      <div class="cover-qr-label">Digitale Speisekarte</div>
+    </div>
+  </div>
+</div>
+
+<div class="menu-section vorspeisen-section">
+  <div class="sec-title">
+    <div class="sec-title-orn-row">
+      <span class="sec-orn-l"></span>
+      <span class="sec-title-text">Vorspeisen</span>
+      <span class="sec-orn-r"></span>
+    </div>
+  </div>
+  <div class="sec-items">
+  <div class="r-item r-item--01">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">01</div>
+        <span class="r-name">Samosa Gemüse</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">4,99 €</div></span>
+      </div>
+      <div class="r-desc">Zwei frittierte Teigtaschen mit Gemüsefüllung, Kartoffeln, Erbsen und Sauce</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">a</span><span class="r-allerg-tag">j</span><span class="r-allerg-tag">h</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/objekt_29.png" alt="Samosa Gemüse"></div>
+  </div>  <div class="r-item r-item--02">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">02</div>
+        <span class="r-name">Afghan Burger</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">6,99 €</div></span>
+      </div>
+      <div class="r-desc">Afghanisches Brot mit Lammhack, Pommes, Salat, Gurke und Ei</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">a</span><span class="r-allerg-tag">e</span><span class="r-allerg-tag">g</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/afghan_burger.png" alt="Afghan Burger"></div>
+  </div>  <div class="r-item r-item--03">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">03</div>
+        <span class="r-name">Afghan Soup</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">5,99 €</div></span>
+      </div>
+      <div class="r-desc">Hähnchensuppe mit Kichererbsen, Ei, Mais und Karotten</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">e</span><span class="r-allerg-tag">i</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/objekt_28.png" alt="Afghan Soup"></div>
+  </div>  <div class="r-item r-item--04">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">04</div>
+        <span class="r-name">Bolani Kachalo</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">2,49 €</div></span>
+      </div>
+      <div class="r-desc">Fladenbrot gefüllt mit Kartoffeln und Koriander</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">a</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/objekt_27.png" alt="Bolani Kachalo"></div>
+  </div>  <div class="r-item r-item--05">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">05</div>
+        <span class="r-name">Bolani Gandana</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">2,49 €</div></span>
+      </div>
+      <div class="r-desc">Fladenbrot gefüllt mit Lauch, Zwiebeln und Koriander</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">a</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/objekt_27.png" alt="Bolani Gandana"></div>
+  </div>
+  </div>
+</div>
+<div class="menu-section">
+  <div class="sec-title">
+    <div class="sec-title-orn-row">
+      <span class="sec-orn-l"></span>
+      <span class="sec-title-text">Döner Spezialitäten</span>
+      <span class="sec-orn-r"></span>
+    </div>
+  </div>
+  <div class="sec-items">
+  <div class="r-item r-item--06">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">06</div>
+        <span class="r-name">Durum Döner</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">8,99 €</div></span>
+      </div>
+      <div class="r-desc">Im Fladenbrot gerolltes Dönerfleisch mit Salat und Soße</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">a</span><span class="r-allerg-tag">e</span><span class="r-allerg-tag">g</span><span class="r-allerg-tag">i</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/objekt_30.png" alt="Durum Döner"></div>
+  </div>  <div class="r-item r-item--07">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">07</div>
+        <span class="r-name">Döner Kebap</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">7,99 €</div></span>
+      </div>
+      <div class="r-desc">Klassisches Dönerfleisch im Brot</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">a</span><span class="r-allerg-tag">e</span><span class="r-allerg-tag">g</span><span class="r-allerg-tag">i</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/doener_kebap.png" alt="Döner Kebap"></div>
+  </div>  <div class="r-item r-item--08">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">08</div>
+        <span class="r-name">Falafel Döner</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">6,99 €</div></span>
+      </div>
+      <div class="r-desc">Dönerbrot mit knusprigen Falafelbällchen</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">a</span><span class="r-allerg-tag">e</span><span class="r-allerg-tag">g</span><span class="r-allerg-tag">f</span><span class="r-allerg-tag">k</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/objekt_31.png" alt="Falafel Döner"></div>
+  </div>  <div class="r-item r-item--09">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">09</div>
+        <span class="r-name">Döner Box</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">7,49 €</div></span>
+      </div>
+      <div class="r-desc">Döner-Box mit Dönerfleisch, Salat, Soße und Pommes frites</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">a</span><span class="r-allerg-tag">e</span><span class="r-allerg-tag">g</span><span class="r-allerg-tag">i</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/doener_box.png" alt="Döner Box"></div>
+  </div>
+  </div>
+</div>
+<div class="menu-section">
+  <div class="sec-title">
+    <div class="sec-title-orn-row">
+      <span class="sec-orn-l"></span>
+      <span class="sec-title-text">Döner Spezialitäten</span>
+      <span class="sec-orn-r"></span>
+    </div>
+  </div>
+  <div class="sec-items">
+  <div class="r-item r-item--10">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">10</div>
+        <span class="r-name">Durum Vegetarisch</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">7,49 €</div></span>
+      </div>
+      <div class="r-desc">Vegetarischer Durum mit frischem Gemüse</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">a</span><span class="r-allerg-tag">e</span><span class="r-allerg-tag">g</span><span class="r-allerg-tag">i</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/objekt_30.png" alt="Durum Vegetarisch"></div>
+  </div>  <div class="r-item r-item--11">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">11</div>
+        <span class="r-name">Döner Teller</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">11,49 €</div></span>
+      </div>
+      <div class="r-desc">Dönerfleisch auf Teller mit Salat und Soßen</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">e</span><span class="r-allerg-tag">g</span><span class="r-allerg-tag">j</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/objekt_26.png" alt="Döner Teller"></div>
+  </div>  <div class="r-item r-item--12">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">12</div>
+        <span class="r-name">Pommes Frites Klein</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">4,00 €</div></span>
+      </div>
+      <div class="r-desc">Knusprige goldene Pommes Frites</div>
+      <div class="r-footer"></div>
+    </div>
+    <div class="r-photo"><img src="images/pommes_klein.png" alt="Pommes Frites Klein"></div>
+  </div>  <div class="r-item r-item--12b">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">12b</div>
+        <span class="r-name">Pommes Frites Groß</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">5,99 €</div></span>
+      </div>
+      <div class="r-desc">Knusprige goldene Pommes Frites</div>
+      <div class="r-footer"></div>
+    </div>
+    <div class="r-photo"><img src="images/objekt_8.png" alt="Pommes Frites Groß"></div>
+  </div>
+  </div>
+</div>
+<div class="menu-section grill-section">
+  <div class="sec-title">
+    <div class="sec-title-orn-row">
+      <span class="sec-orn-l"></span>
+      <span class="sec-title-text">Grill Spezialitäten</span>
+      <span class="sec-orn-r"></span>
+    </div>
+  </div>
+  <div class="sec-items">
+  <div class="r-item r-item--13">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">13</div>
+        <span class="r-name">Mix Grill (2 Pers.)</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">–</div></span>
+      </div>
+      <div class="r-desc">4 Lamm-Kebab, 4 Hähnchenbrust, 4 Hähnchenflügel, 2 Lammkoteletts, 1 Kabab Koobideh · Mit Reis oder Pommes</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">g</span><span class="r-allerg-tag">j</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/objekt_2.png" alt="Mix Grill (2 Pers.)"></div>
+  </div>  <div class="r-item r-item--14">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">14</div>
+        <span class="r-name">Mix Grill (4 Pers.)</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">–</div></span>
+      </div>
+      <div class="r-desc">1 Lamm-Kebab, 1 Hähnchenbrust, 1 Hähnchenflügel, 4 Lammkoteletts, 2 Kabab Koobideh · Mit Reis oder Pommes</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">g</span><span class="r-allerg-tag">j</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/mix_grill_4.png" alt="Mix Grill (4 Pers.)"></div>
+  </div>  <div class="r-item r-item--15">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">15</div>
+        <span class="r-name">Hähnchenflügel</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">13,99 €</div></span>
+      </div>
+      <div class="r-desc">Knusprige Hähnchenflügel vom Grill · Salat, Pommes oder Reis</div>
+      <div class="r-footer"></div>
+    </div>
+    <div class="r-photo"><img src="images/haehnchenflügel_15.png" alt="Hähnchenflügel"></div>
+  </div>  <div class="r-item r-item--16">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">16</div>
+        <span class="r-name">Lamm Tikka Kabab</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">16,99 €</div></span>
+      </div>
+      <div class="r-desc">Zartes Lammfleisch am Spieß · Salat, Pommes oder Reis</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">g</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/objekt_4.png" alt="Lamm Tikka Kabab"></div>
+  </div>
+  </div>
+</div>
+<div class="menu-section grill-section">
+  <div class="sec-title">
+    <div class="sec-title-orn-row">
+      <span class="sec-orn-l"></span>
+      <span class="sec-title-text">Grill Spezialitäten</span>
+      <span class="sec-orn-r"></span>
+    </div>
+  </div>
+  <div class="sec-items">
+  <div class="r-item r-item--17">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">17</div>
+        <span class="r-name">Kubida Kabab</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">14,99 €</div></span>
+      </div>
+      <div class="r-desc">Hackfleisch-Spieß nach Hausrezept · Salat, Pommes oder Reis</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">g</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/objekt_7.png" alt="Kubida Kabab"></div>
+  </div>  <div class="r-item r-item--18">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">18</div>
+        <span class="r-name">Chicken Tikka Kabab</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">14,99 €</div></span>
+      </div>
+      <div class="r-desc">Mariniertes Hühnchen vom Grill · Salat, Pommes oder Reis</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">g</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/objekt_6.png" alt="Chicken Tikka Kabab"></div>
+  </div>  <div class="r-item r-item--19">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">19</div>
+        <span class="r-name">Lamm Kotelett</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">18,99 €</div></span>
+      </div>
+      <div class="r-desc">Lammkoteletts nach afghanischer Art · Salat, Pommes oder Reis</div>
+      <div class="r-footer"></div>
+    </div>
+    <div class="r-photo"><img src="images/objekt_2_3.png" alt="Lamm Kotelett"></div>
+  </div>  <div class="r-item r-item--20">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">20</div>
+        <span class="r-name">Chopan Kabab</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">17,99 €</div></span>
+      </div>
+      <div class="r-desc">Lammkoteletts vom Holzkohlegrill · Salat, Pommes oder Reis</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">g</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/objekt_4.png" alt="Chopan Kabab"></div>
+  </div>
+  </div>
+</div>
+<div class="menu-section">
+  <div class="sec-title">
+    <div class="sec-title-orn-row">
+      <span class="sec-orn-l"></span>
+      <span class="sec-title-text">Afghanische Hauptgerichte</span>
+      <span class="sec-orn-r"></span>
+    </div>
+  </div>
+  <div class="sec-items">
+  <div class="r-item r-item--21">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">21</div>
+        <span class="r-name">Kabuli Palau</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">–</div></span>
+      </div>
+      <div class="r-desc">Afghanisches Reisgericht mit Kalbfleisch, Karotten und Rosinen</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">h</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/objekt_20.png" alt="Kabuli Palau"></div>
+  </div>  <div class="r-item r-item--22">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">22</div>
+        <span class="r-name">Afghan Chalaw</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">9,49 €</div></span>
+      </div>
+      <div class="r-desc">Afghanischer Basmatireis mit Fleischgericht</div>
+      <div class="r-footer"></div>
+    </div>
+    <div class="r-photo"><img src="images/palau_kishmish.png" alt="Afghan Chalaw"></div>
+  </div>  <div class="r-item r-item--23">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">23</div>
+        <span class="r-name">Molong Palau</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-sizes"><span class="r-size-item"><span class="r-size-label">2 Pers.</span><span class="r-price-btn">28,50 €</span></span><span class="r-size-item"><span class="r-size-label">3 Pers.</span><span class="r-price-btn">35,00 €</span></span></div></span>
+      </div>
+      <div class="r-desc">Festlicher Reis mit zartem Kalbfleisch, Karotten und Gewürzen</div>
+      <div class="r-footer"></div>
+    </div>
+    <div class="r-photo"><img src="images/objekt_3_2.png" alt="Molong Palau"></div>
+  </div>  <div class="r-item r-item--24">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">24</div>
+        <span class="r-name">Mahicha-Palau</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">14,99 €</div></span>
+      </div>
+      <div class="r-desc">Reis mit zarter Lammhaxe</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">g</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/objekt_5.png" alt="Mahicha-Palau"></div>
+  </div>
+  </div>
+</div>
+<div class="menu-section">
+  <div class="sec-title">
+    <div class="sec-title-orn-row">
+      <span class="sec-orn-l"></span>
+      <span class="sec-title-text">Afghanische Hauptgerichte</span>
+      <span class="sec-orn-r"></span>
+    </div>
+  </div>
+  <div class="sec-items">
+  <div class="r-item r-item--25">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">25</div>
+        <span class="r-name">Biryani-Palau</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">9,99 €</div></span>
+      </div>
+      <div class="r-desc">Würziger Biryani-Reis mit zartem Hähnchenfleisch und Gewürzen</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">g</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/biryani.png" alt="Biryani-Palau"></div>
+  </div>  <div class="r-item r-item--26">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">26</div>
+        <span class="r-name">Mantu</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">10,99 €</div></span>
+      </div>
+      <div class="r-desc">Gedämpfte Teigtaschen mit Hackfleisch, Erbsen und Joghurt</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">a</span><span class="r-allerg-tag">e</span><span class="r-allerg-tag">g</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/objekt_17.png" alt="Mantu"></div>
+  </div>  <div class="r-item r-item--27">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">27</div>
+        <span class="r-name">Ashak</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">10,00 €</div></span>
+      </div>
+      <div class="r-desc">Lauch-Teigtaschen mit Hackfleisch-Soße, Erbsen und Joghurt</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">a</span><span class="r-allerg-tag">e</span><span class="r-allerg-tag">g</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/objekt_16.png" alt="Ashak"></div>
+  </div>  <div class="r-item r-item--29">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">29</div>
+        <span class="r-name">Dopiaza</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">9,99 €</div></span>
+      </div>
+      <div class="r-desc">Fleischgericht mit Zwiebeln und Gewürzen</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">g</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/objekt_21.png" alt="Dopiaza"></div>
+  </div>
+  </div>
+</div>
+<div class="menu-section">
+  <div class="sec-title">
+    <div class="sec-title-orn-row">
+      <span class="sec-orn-l"></span>
+      <span class="sec-title-text">Afghanische Hauptgerichte</span>
+      <span class="sec-orn-r"></span>
+    </div>
+  </div>
+  <div class="sec-items">
+  <div class="r-item r-item--30">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">30</div>
+        <span class="r-name">Qorma</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">9,99 €</div></span>
+      </div>
+      <div class="r-desc">Traditionelles Schmorgemüse mit Lamm</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">g</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/qorma.png" alt="Qorma"></div>
+  </div>  <div class="r-item r-item--31">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">31</div>
+        <span class="r-name">Chapli Kabab</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">8,00 €</div></span>
+      </div>
+      <div class="r-desc">Gebratene Hackfleisch-Patties</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">a</span><span class="r-allerg-tag">e</span><span class="r-allerg-tag">j</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/objekt_4_2.png" alt="Chapli Kabab"></div>
+  </div>  <div class="r-item r-item--32">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">32</div>
+        <span class="r-name">Lubia</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">6,99 €</div></span>
+      </div>
+      <div class="r-desc">Bohnen-Eintopf im Wok</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">i</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/lubia.png" alt="Lubia"></div>
+  </div>  <div class="r-item r-item--33">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">33</div>
+        <span class="r-name">Pacha</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">9,99 €</div></span>
+      </div>
+      <div class="r-desc">Traditionelles Gericht aus zartem Schafskopffleisch in würziger Brühe</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">g</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/pacha.png" alt="Pacha"></div>
+  </div>
+  </div>
+</div>
+<div class="menu-section">
+  <div class="sec-title">
+    <div class="sec-title-orn-row">
+      <span class="sec-orn-l"></span>
+      <span class="sec-title-text">Afghanische Hauptgerichte</span>
+      <span class="sec-orn-r"></span>
+    </div>
+  </div>
+  <div class="sec-items">
+  <div class="r-item r-item--34">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">34</div>
+        <span class="r-name">Lamm Karahi</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">14,99 €</div></span>
+      </div>
+      <div class="r-desc">Zartes Lammfleisch im Wok mit Tomaten und Gewürzen</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">g</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/objekt_18.png" alt="Lamm Karahi"></div>
+  </div>  <div class="r-item r-item--35">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">35</div>
+        <span class="r-name">Chicken Karahi</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">13,99 €</div></span>
+      </div>
+      <div class="r-desc">Hähnchen im Wok mit Tomaten und Gewürzen</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">g</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/objekt_19.png" alt="Chicken Karahi"></div>
+  </div>  <div class="r-item r-item--36">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">36</div>
+        <span class="r-name">Bamya</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">8,99 €</div></span>
+      </div>
+      <div class="r-desc">Okraschoten geschmort mit Tomaten und Gewürzen</div>
+      <div class="r-footer"></div>
+    </div>
+    <div class="r-photo"><img src="images/bamya.png" alt="Bamya"></div>
+  </div>  <div class="r-item r-item--37">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">37</div>
+        <span class="r-name">Sabzi Palak</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">7,99 €</div></span>
+      </div>
+      <div class="r-desc">Cremiges Spinatgericht mit Gewürzen</div>
+      <div class="r-footer"></div>
+    </div>
+    <div class="r-photo"><img src="images/sabzi_palak.png" alt="Sabzi Palak"></div>
+  </div>
+  </div>
+</div>
+<div class="menu-section">
+  <div class="sec-title">
+    <div class="sec-title-orn-row">
+      <span class="sec-orn-l"></span>
+      <span class="sec-title-text">Extra</span>
+      <span class="sec-orn-r"></span>
+    </div>
+  </div>
+  <div class="sec-items">
+  <div class="r-item r-item--38">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">38</div>
+        <span class="r-name">Naan</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-sizes"><span class="r-size-item"><span class="r-size-label">Sada</span><span class="r-price-btn">1,99 €</span></span><span class="r-size-item"><span class="r-size-label">Koniet</span><span class="r-price-btn">1,99 €</span></span><span class="r-size-item"><span class="r-size-label">Garlic</span><span class="r-price-btn">2,49 €</span></span></div></span>
+      </div>
+      <div class="r-desc">Sada · Koniet · Garlic Naan</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">a</span><span class="r-allerg-tag">g</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/naan.png" alt="Naan"></div>
+  </div>  <div class="r-item r-item--41">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">41</div>
+        <span class="r-name">Chicken Nuggets (7)</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">4,99 €</div></span>
+      </div>
+      <div class="r-desc">Knusprige Hähnchen-Nuggets</div>
+      <div class="r-footer"><div class="r-allergen"><span class="r-allerg-label">ENTHÄLT:</span><span class="r-allerg-tag">a</span><span class="r-allerg-tag">e</span><span class="r-allerg-tag">f</span></div></div>
+    </div>
+    <div class="r-photo"><img src="images/objekt.png" alt="Chicken Nuggets (7)"></div>
+  </div>  <div class="r-item r-item--42">
+    <div class="r-info">
+      <div class="r-header">
+        <div class="r-num-badge">42</div>
+        <span class="r-name">Chicken Wings (6)</span>
+        <span class="r-header-dots"></span>
+        <span class="r-header-price"><div class="r-price-btn">6,99 €</div></span>
+      </div>
+      <div class="r-desc">Würzige Hähnchen-Wings</div>
+      <div class="r-footer"></div>
+    </div>
+    <div class="r-photo"><img src="images/chicken_wings.png" alt="Chicken Wings (6)"></div>
+  </div>
+  </div>
+</div>
+<footer class="footer">Maulana Restaurant · Frankfurt am Main</footer>
+
+<!-- PAGE: Afghan Sheryakh & Desserts -->
+<div class="getraenke-page">
+  <div class="g-title">Getränke</div>
+
+  <div class="gk-section">
+    <div class="gk-items">
+      <div class="g-group-title">Afghan Sheryakh</div>
+      <div style="font-size:0.82rem;color:var(--desc);margin:-0.4rem 0 0.8rem 0;">Afghanisches Eiscreme mit Kardamom, Pistazien und Mandeln</div>
+      <div class="g-row"><span class="g-num">49</span><span class="g-name">Small</span><span class="g-dots"></span><span class="g-price">5,50 €</span></div>
+      <div class="g-row"><span class="g-num">50</span><span class="g-name">Medium</span><span class="g-dots"></span><span class="g-price">6,50 €</span></div>
+      <div class="g-row"><span class="g-num">51</span><span class="g-name">Large</span><span class="g-dots"></span><span class="g-price">7,90 €</span></div>
+    </div>
+    <div class="gk-img">
+      <img src="images/sheryakh.png" style="height:290px;object-fit:contain;object-position:top center;">
+    </div>
+  </div>
+
+  <div class="g-divider"></div>
+
+  <div class="gk-section">
+    <div class="gk-items">
+      <div class="g-group-title">Desserts</div>
+      <div class="g-row"><span class="g-num">52</span><span class="g-name">Firnee</span><span class="g-dots"></span><span class="g-price">5,50 €</span></div>
+      <div style="font-size:0.82rem;color:var(--desc);padding:0.3rem 0 0 1.8rem;">Afghanischer Milchpudding mit Kardamom und Pistazien</div>
+    </div>
+    <div class="gk-img">
+      <img src="images/firnee_gruen.png" style="height:170px;object-fit:contain;">
+      <img src="images/firnee_weiss.png" style="height:170px;object-fit:contain;">
+    </div>
+  </div>
+</div>
+
+<!-- PAGE: Getränke – Säfte & Wasser -->
+<div class="getraenke-page">
+  <div class="g-title">Getränke</div>
+
+  <div class="gk-section">
+    <div class="gk-items">
+      <div class="g-group-title">Säfte &amp; Lassi</div>
+      <div class="g-row"><span class="g-num">54</span><span class="g-name">Ananassaft</span><span class="g-dots"></span><span class="g-price">6,00 €</span></div>
+      <div class="g-row"><span class="g-num">55</span><span class="g-name">Mangosaft</span><span class="g-dots"></span><span class="g-price">6,00 €</span></div>
+      <div class="g-row"><span class="g-num">56</span><span class="g-name">Bananensaft</span><span class="g-dots"></span><span class="g-price">6,00 €</span></div>
+      <div class="g-row"><span class="g-num">57</span><span class="g-name">Mix Saft</span><span class="g-dots"></span><span class="g-price">6,00 €</span></div>
+      <div class="g-row"><span class="g-num">58</span><span class="g-name">Frisch gepresster Orangensaft</span><span class="g-dots"></span><span class="g-price">6,00 €</span></div>
+      <div class="g-row"><span class="g-num">59</span><span class="g-name">Apfelsaft</span><span class="g-dots"></span><span class="g-price">4,50 €</span></div>
+      <div class="g-row"><span class="g-num">60</span><span class="g-name">Frische Minze</span><span class="g-dots"></span><span class="g-price">4,00 €</span></div>
+      <div class="g-row"><span class="g-num">61</span><span class="g-name">Mango Lassi</span><span class="g-dots"></span><span class="g-price">4,00 €</span></div>
+      <div class="g-row"><span class="g-num">62</span><span class="g-name">Afghan Lassi</span><span class="g-dots"></span><span class="g-price">3,00 €</span></div>
+    </div>
+    <div class="gk-img">
+      <img src="images/lassi_smoothie.png"       style="height:190px;object-fit:contain;">
+      <img src="images/saft_limo_mango_nobg.png" style="height:190px;object-fit:contain;">
+    </div>
+  </div>
+
+  <div class="g-divider"></div>
+
+  <div class="gk-section">
+    <div class="gk-items">
+      <div class="g-group-title">Wasser</div>
+      <div class="g-row"><span class="g-num">69</span><span class="g-name">Stilles Wasser klein</span><span class="g-dots"></span><span class="g-price">1,50 €</span></div>
+      <div class="g-row"><span class="g-num">70</span><span class="g-name">Sprudelwasser</span><span class="g-dots"></span><span class="g-price">2,00 €</span></div>
+    </div>
+    <div class="gk-img">
+      <img src="images/wasser_hassia.png" style="height:280px;object-fit:contain;">
+    </div>
+  </div>
+</div>
+
+<!-- PAGE: Getränke – Softdrinks & Tee -->
+<div class="getraenke-page">
+  <div class="g-title">Getränke</div>
+
+  <div class="gk-section">
+    <div class="gk-items">
+      <div class="g-group-title">Softdrinks</div>
+      <div class="g-row"><span class="g-num">63</span><span class="g-name">Coca-Cola <span class="g-vol">0,33l</span></span><span class="g-dots"></span><span class="g-price">2,50 €</span></div>
+      <div class="g-row"><span class="g-num">64</span><span class="g-name">Coca-Cola Zero <span class="g-vol">0,33l</span></span><span class="g-dots"></span><span class="g-price">2,50 €</span></div>
+      <div class="g-row"><span class="g-num">65</span><span class="g-name">Fanta <span class="g-vol">0,33l</span></span><span class="g-dots"></span><span class="g-price">2,50 €</span></div>
+      <div class="g-row"><span class="g-num">66</span><span class="g-name">Sprite <span class="g-vol">0,33l</span></span><span class="g-dots"></span><span class="g-price">2,50 €</span></div>
+      <div class="g-row"><span class="g-num">67</span><span class="g-name">Mezzo Mix <span class="g-vol">0,33l</span></span><span class="g-dots"></span><span class="g-price">2,50 €</span></div>
+      <div class="g-row"><span class="g-num">68</span><span class="g-name">Red Bull <span class="g-vol">0,25l</span></span><span class="g-dots"></span><span class="g-price">2,50 €</span></div>
+    </div>
+    <div class="gk-img">
+      <img src="images/softdrinks_cola_mezzo_nobg.png"   style="height:190px;object-fit:contain;">
+      <img src="images/softdrinks_fanta_sprite_nobg.png" style="height:190px;object-fit:contain;">
+    </div>
+  </div>
+
+  <div class="g-divider"></div>
+
+  <div class="gk-section">
+    <div class="gk-items">
+      <div class="g-group-title">Tee</div>
+      <div class="g-row"><span class="g-num">71</span><span class="g-name">Afghan Grüner Tee</span><span class="g-dots"></span><span class="g-price">1,50 €</span></div>
+      <div class="g-row"><span class="g-num">72</span><span class="g-name">Schwarzer Tee</span><span class="g-dots"></span><span class="g-price">1,50 €</span></div>
+      <div class="g-row"><span class="g-num">73</span><span class="g-name">Afghanischer Milchtee (Sheer Chai)</span><span class="g-dots"></span><span class="g-price">2,00 €</span></div>
+    </div>
+    <div class="gk-img">
+      <img src="images/tee_cups.png" style="height:280px;object-fit:contain;">
+    </div>
+  </div>
+</div>
+
+<div class="info-page">
+
+  <div class="info-sep"></div>
+
+  <div class="info-allerg-box">
+    <div class="info-allerg-box-title">Hinweis zu Allergien &amp; Unverträglichkeiten</div>
+    <div class="info-allerg-box-text">
+      Leiden Sie an Allergien oder Lebensmittelunverträglichkeiten? Bitte informieren Sie unser
+      Servicepersonal vor Ihrer Bestellung — wir beraten Sie gerne.
+    </div>
+  </div>
+
+  <div class="info-allerg-title">Allergenkennzeichnung</div>
+  <div class="info-allerg-grid">
+    <div class="info-allerg-row"><span class="info-allerg-badge">a</span><span class="info-allerg-name">Gluten (Weizen)</span></div>
+    <div class="info-allerg-row"><span class="info-allerg-badge">d</span><span class="info-allerg-name">Fisch</span></div>
+    <div class="info-allerg-row"><span class="info-allerg-badge">e</span><span class="info-allerg-name">Eier</span></div>
+    <div class="info-allerg-row"><span class="info-allerg-badge">f</span><span class="info-allerg-name">Sojabohnen</span></div>
+    <div class="info-allerg-row"><span class="info-allerg-badge">g</span><span class="info-allerg-name">Milch / Laktose</span></div>
+    <div class="info-allerg-row"><span class="info-allerg-badge">h</span><span class="info-allerg-name">Schalenfrüchte</span></div>
+    <div class="info-allerg-row"><span class="info-allerg-badge">i</span><span class="info-allerg-name">Sellerie</span></div>
+    <div class="info-allerg-row"><span class="info-allerg-badge">j</span><span class="info-allerg-name">Senf</span></div>
+    <div class="info-allerg-row"><span class="info-allerg-badge">k</span><span class="info-allerg-name">Sesam</span></div>
+  </div>
+
+  <div class="info-sep"></div>
+
+  <div class="info-section-label">🍽 Catering &amp; Veranstaltungen</div>
+  <div class="info-section-text">
+    Wir richten gerne Ihre Feier aus und kochen für Sie zu besonderen Anlässen.
+    Bitte kontaktieren Sie uns für individuelle Angebote.
+  </div>
+
+  <div class="info-section-label">🚚 Lieferservice</div>
+  <div class="info-section-text">
+    Lieferservice verfügbar — bitte erfragen Sie unsere aktuellen Konditionen.
+  </div>
+
+  <div class="info-sign">
+    <div class="info-sign-greeting">Mit herzlichen Grüßen,</div>
+    <div class="info-sign-name">Ihr Maulana Team</div>
+    <div class="info-sign-sub">Maulana Restaurant · Frankfurt am Main</div>
+  </div>
+</div>
+
+<div class="back-cover">
+  <img class="cover-frame" src="images/frame.png" alt="">
+  <div class="back-content">
+    <div class="back-restaurant-name">MAULANA</div>
+    <div class="back-restaurant-sub">R E S T A U R A N T</div>
+
+    <div class="back-sep"></div>
+
+    <div class="back-hours-title">Öffnungszeiten</div>
+    <div class="back-hours-simple">11:00 – 23:00 Uhr</div>
+    <div class="back-hours-days">Dienstag – Montag</div>
+
+    <div class="back-sep"></div>
+
+    <div class="back-qr-wrap">
+      <img class="back-qr-img" src="images/qr.png" alt="QR Code">
+      <div class="back-qr-label">Digitale Speisekarte</div>
+    </div>
+
+    <div class="back-sep"></div>
+
+    <div class="back-info">
+      <div class="back-info-row">
+        <span class="back-info-icon">📍</span>
+        <span>Kaiserstraße 72, 60329 Frankfurt am Main</span>
+      </div>
+      <div class="back-info-row">
+        <span class="back-info-icon">📞</span>
+        <span>0178 4858800</span>
+      </div>
+    </div>
+
+    <div class="back-sep"></div>
+
+    <div class="cover-social">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+      </svg>
+      <span class="cover-social-handle">maulana.restaurant</span>
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V9.05a8.16 8.16 0 004.77 1.52V7.12a4.85 4.85 0 01-1-.43z"/>
+      </svg>
+    </div>
+  </div>
+</div>
+</body>
+</html>
